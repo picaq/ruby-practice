@@ -2,9 +2,10 @@
 some files from linkedin learning’s Ruby Essential Training Part 1: The Basics
 
 notes below:
-## numbers
+# Objects
+## Numbers
 
-```rb
+```ruby
 # change to float
 num.to_f
 
@@ -17,7 +18,7 @@ num.to_i
 .abs
 ```
 
-## strings
+## Strings
 ```ruby
 # append
 string << "substr"
@@ -56,7 +57,7 @@ string.length
 "some string #{variable}"
 ```
 
-# arrays
+## Arrays
 ```ruby
 # append ( like arr.push )
 array << element
@@ -72,7 +73,7 @@ array[starting_i.. ending_i] # range, where starting_i < ending_i
 
 ```
 
-## array methods
+### array methods
 ```ruby
 # ! at the end of the methods reassigns the array to the change
 array.reverse
@@ -107,4 +108,30 @@ array.unshift
 # add/remove elements
 array + [ele1, ele2, ele3]
 array - [element]
+```
+
+## Hashes
+- aka dictionaries, associative arrays
+- unordered
+- find items by key, not position
+
+```ruby
+hash = {
+   'key' => 'value',
+   'label' => 'value'
+}
+
+# accessing obj
+hash['key'] # returns 'value'
+
+# assigning
+hash['label'] = 'another value'
+
+# return array
+hash.keys # of keys
+hash.values # of values
+
+# converts hash -> array
+hash.to_a # returns 2D array of [key, value]
+
 ```
