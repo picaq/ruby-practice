@@ -17,3 +17,41 @@ num.to_i
 .abs
 ```
 
+## strings
+```ruby
+# append
+string << "substr"
+
+# multiplication
+string * 3
+
+# type conversion
+# number to string
+num.to_s
+
+# string to integer
+string.to_i
+
+# all caps
+string.upcase
+
+# lowercase all
+string.downcase
+
+# title case
+string.capitalize
+
+# reverse chars
+string.reverse
+ 
+# length
+string.length
+```
+### double-quoted string powers
+```ruby
+# tab, newline
+"\t \n"
+
+# string interpolation
+"some string #{variable}"
+```
