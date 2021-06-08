@@ -55,3 +55,56 @@ string.length
 # string interpolation
 "some string #{variable}"
 ```
+
+# arrays
+```ruby
+# append ( like arr.push )
+array << element
+
+# indexing
+array[-1] # last element
+array[-2] # second til last 
+   etc...
+
+# portion of array
+array[starting_i, num_of_elem]
+array[starting_i.. ending_i] # range, where starting_i < ending_i
+
+```
+
+## array methods
+```ruby
+# ! at the end of the methods reassigns the array to the change
+array.reverse
+array.shuffle
+array.flatten
+
+# removes duplicate values
+array.uniq
+
+# removes all nils
+array.compact
+
+# ? to query or find out about something
+array.include?(element_val) # returns true or false
+
+# delete value and index and shifts everything over
+array.delete_at(index) # returns the deleted value
+
+# find value and delete if found
+array.delete(value) # returns deleted value or nil
+
+# array <-> string (delimiter = optional)
+array.join(delimiter) 
+string.split(delimiter)
+
+# stack methods
+array.push
+array.pop
+array.shift
+array.unshift
+
+# add/remove elements
+array + [ele1, ele2, ele3]
+array - [element]
+```
