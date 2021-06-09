@@ -222,7 +222,26 @@ this_variable = 55
 This_is_also_const = 'but ill advised'
 ```
 
-<!-- 
+## Nil
+- aka null
+```ruby
+nil.class # returns NilClass
+
+# nil is not false
+nil == false # returns false
+
+# 3 methods to check if something is nil
+nil.nil? # returns true
+88 == nil # returns false
+!nil # returns true, checks if it has a thing
+!88 # returns
+!variable
+```
+
+
+
+<!-- ## Nil
 ```ruby
 
 ``` -->
+
