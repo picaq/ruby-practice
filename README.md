@@ -166,6 +166,22 @@ hash = {
 # shorthand keys are ALWAYS all symbols
 hash.keys.first.class # returns Symbol
 ```
+## Booleans
+- methods names that end in `?` returns booleans
+```ruby
+[1, 2, 3].include?(2) # returns true
+2.between?(5,8) # returns false
+[].empty? # true
+hash.has_key?(:some_key) # true
+hash.has_value?('value') # false
+```
+### Comparison + Logic Operators
+```ruby
+==  <  >  <=  >=  !  !=  &&  ||
+
+true.class # returns TrueClass
+false.class # returns FalseClass
+```
 
 
 <!-- 
