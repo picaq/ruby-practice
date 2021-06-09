@@ -1,10 +1,13 @@
 # ruby-practice and notes
-some files from linkedin learning’s Ruby Essential Training Part 1: The Basics
+some practice files from Linkedin Learning’s [Ruby Essential Training Part 1: The Basics](https://www.linkedin.com/learning/ruby-essential-training-part-1-the-basics)
+
+This assumes knowledge coming from JavaScript
 
 notes below:
 # Objects
 ## Numbers
-
+- use floats for precision calculations
+- integer •/÷ integer make less precise (rounded) results
 ```ruby
 # change to float
 num.to_f
@@ -19,6 +22,7 @@ num.to_i
 ```
 
 ## Strings
+- mutable
 ```ruby
 # append
 string << "substr"
@@ -70,7 +74,6 @@ array[-2] # second til last
 # portion of array
 array[starting_i, num_of_elem]
 array[starting_i.. ending_i] # range, where starting_i < ending_i
-
 ```
 
 ### array methods
@@ -133,11 +136,10 @@ hash.values # of values
 
 # converts hash -> array
 hash.to_a # returns 2D array of [key, value]
-
 ```
 
 ## Symbols
-- immutable strings/labels, not variables
+- immutable labels, not variables
 - start with :
 - lowercase, underscores
 - cannot start key with numbers
@@ -163,7 +165,6 @@ hash = {
 
 # shorthand keys are ALWAYS all symbols
 hash.keys.first.class # returns Symbol
-
 ```
 
 
