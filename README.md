@@ -111,6 +111,10 @@ array.unshift
 # add/remove elements
 array + [ele1, ele2, ele3]
 array - [element]
+
+#find index of value
+array.index(value) # returns index or nil
+
 ```
 
 ## Hashes
@@ -234,7 +238,7 @@ nil == false # returns false
 nil.nil? # returns true
 88 == nil # returns false
 !nil # returns true, checks if it has a thing
-!88 # returns
+!88 # returns false, because it exists
 !variable
 ```
 
