@@ -135,3 +135,40 @@ hash.values # of values
 hash.to_a # returns 2D array of [key, value]
 
 ```
+
+## Symbols
+- immutable strings/labels, not variables
+- start with :
+- lowercase, underscores
+- cannot start key with numbers
+- no quotes or spaces
+- can be used in hashes
+- refers to exact same item `.object_id` in memory, opposed to strings
+    - less frequent garbage collection
+
+```ruby
+hash =  {
+   :some_key => 'Some value',
+   :a_symbol => 'a value'
+}
+
+# retrieve a value
+hash[:a_symbol] # returns 'a value'
+
+# shorthand looks like json
+hash = {
+   some_key: 'Some value',
+   a_symbol: 'a value'
+}
+
+# shorthand keys are ALWAYS all symbols
+hash.keys.first.class # returns Symbol
+
+```
+
+
+<!-- 
+```ruby
+
+
+``` -->
