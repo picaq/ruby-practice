@@ -182,10 +182,36 @@ hash.has_value?('value') # false
 true.class # returns TrueClass
 false.class # returns FalseClass
 ```
+## Ranges
+- must wrap range in parens before calling methods if it is not in a variable
+- avoid using exclusive ranges
+```ruby
+range.class = Range
+
+# inclusive
+1..10
+
+# exclusive
+1...10
+
+# first item in range
+range.first
+range.begin
+
+# last item of range
+range.last
+range.end
+
+# create array from range
+array = [*range]
+
+# works with string chars
+('a'..'m').include?('g') # return true
+
+```
 
 
 <!-- 
 ```ruby
-
 
 ``` -->
