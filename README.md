@@ -210,6 +210,17 @@ array = [*range]
 
 ```
 
+## Constants
+- not obj but reference them
+- all caps naming convention
+   - title case works but not advised
+- not meant to change but changeable
+   - ruby will issue warning + change it
+```ruby
+THIS_IS_CONSTANT = 40
+this_variable = 55
+This_is_also_const = 'but ill advised'
+```
 
 <!-- 
 ```ruby
