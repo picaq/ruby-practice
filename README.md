@@ -242,9 +242,101 @@ nil.nil? # returns true
 !variable
 ```
 
+# Control Structures
+## Conditionals
+
+### if, elsif, else
+```ruby
+if boolean
+   # ...
+elsif boolean
+   # ...
+else
+   # ...
+end
+```
+
+### unless
+- like a reverse if
+- can chain with else
+```ruby
+unless boolean
+   # ...
+end
+
+# equivalent to
+if !boolean
+   # ...
+end
+
+# example
+unless array.empty?
+ # ...
+end
+```
+
+### case
+
+```ruby
+# case with booleans
+# very flexible
+case
+when boolean
+   # ...
+when boolean
+   # ...
+else # default (optional)
+   # ...
+end
+
+# case with comparisons
+# simplified for comparing values
+case test_value
+when value
+   # ...
+when value
+   # ...
+else # default (optional)
+   # ...
+end
+```
+## Short-hand Operators
+
+### ternary 
+
+```ruby
+boolean ? true_result : else_result
+```
+### Or Operator 
+- great for setting default values
+```ruby
+x = y || z
+
+# same as
+y ? x = y : x = z
+```
+### Or-Equals Operator 
+
+```ruby
+# if x has a value, use it, otherwise, set x = y
+# does not execute if x has a value
+x ||= y
+
+# same as
+unless x
+   x = y
+end
+```
+
+### Statement Modifieers
+- only for single lines for readability
+```ruby
+x = y unless x
+puts "Hello" if greeting_enabled
+```
 
 
-<!-- ## Nil
+<!--
 ```ruby
 
 ``` -->
