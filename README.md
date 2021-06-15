@@ -335,7 +335,60 @@ x = y unless x
 puts "Hello" if greeting_enabled
 ```
 
+## Loops
 
+```ruby
+# infinite by default, needs control methods
+loop do
+   # ...
+end
+```
+
+### control methods
+
+
+```ruby
+break # terminates whole loop
+next # jump to next loop
+redo # redo this loop
+retry # restart whole loop
+```
+
+```ruby
+# example
+i = 5
+loop do
+   break if i <= 0
+   puts "Countdown: #{i}"
+   i -+ 1
+end
+puts "Blast off!"
+```
+
+### while, until
+- do is optional here?
+- break is built into this loop
+```ruby
+# run while something is still true
+while boolean
+   # ...
+end
+
+# run until something becomes true
+until boolean
+   # ...
+end
+```
+
+```ruby
+# example
+i = 5
+while i > 0 # or until i <= 0 
+   puts "Countdown: #{i}"
+   i -= 1
+end
+puts "Blast off!"
+```
 <!--
 ```ruby
 
