@@ -513,7 +513,7 @@ hash.each_pair
 fruits = ['banana', 'apple', 'pear']
 
 # most common usage
-fruits.each.do |fruit|
+fruits.each do |fruit|
    puts fruit.capitalize
 end
 
