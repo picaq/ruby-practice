@@ -20,3 +20,13 @@ end
   puts colours
   colours = (colours.split('')[1..-1] << colours.split('').shift).join
 end
+
+
+# spoiler solutions
+
+20.times do |i|
+  first = colors[0]
+  rest = colors[1..-1]
+  colors = rest + first
+  puts colors
+end
