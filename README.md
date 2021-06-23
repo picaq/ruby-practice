@@ -568,12 +568,14 @@ print "Hello\n"
 ```
 
 ### Input
+
 #### `gets`
 
 - `gets` it from standard input, usually user input
 - code will stop and listen to the keyboard for the user to enter data and hit return
+- gets is written on the same line as the printed/puts line
 - the line return is included in `gets`
-  - usually `chop` or `chomp` to remove line return (interchangeable)
+  - usually `.chop` or `.chomp` to remove line return (interchangeable)
   - `chop` removes last character of a string
   - `chomp` removes last character of a string if it is a new line character (usually used)
 
