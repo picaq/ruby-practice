@@ -28,8 +28,8 @@ puts "\nOkay, I have my number."
   else
     abort("\nCongratulations, #{name}! You guessed my number #{number}!")
   end
-  
 end
+
 puts "\nThat was your last guess."
 puts "My number was #{number}"
 puts "Goodbye!"
