@@ -460,7 +460,7 @@ puts "Blast off!"
 
 ```ruby
 5.downto(1) do |i|
-   puts "Coutndown: #{i}"
+   puts "Countdown: #{i}"
 end
 puts "Blast off!"
 ```
@@ -528,3 +528,60 @@ end
 
 ``` -->
 
+# Ruby Scripting
+
+## Best Practices
+
+- name files with `.rb`
+- shebang line at top: 
+  - `#!/usr/bin/env ruby`
+  - allows ruby scripts to be run anywhere
+  - tells unix to go to environment and ask it to tell which vers of ruby to use
+  
+```bash
+# shell command: what shebang does
+/usr/bin/env ruby -v
+```
+
+## Exit a Running Script
+
+- unlike `break`, which only stops looping but continues running the rest of the script
+
+- `exit`, `exit!`
+- `abort ( msg )`
+  - useful for including error message
+  - same as `puts msg` and then `exit`
+- type `ctrl + c`
+  - sends an interrupt signal and tells the program to stop running
+
+## Input and Output
+
+### Output
+
+```ruby
+puts # outputs a line return no matter what
+print # all together on a single line
+
+puts "Hello"
+# same as 
+print "Hello\n"
+```
+
+### Input
+#### `gets`
+
+- `gets` it from standard input, usually user input
+- code will stop and listen to the keyboard for the user to enter data and hit return
+- the line return is included in `gets`
+  - usually `chop` or `chomp` to remove line return (interchangeable)
+  - `chop` removes last character of a string
+  - `chomp` removes last character of a string if it is a new line character (usually used)
+
+```ruby
+# example
+print "What is your name? "
+respone = gets.chomp
+
+puts "Hello, #{response}!"
+# Hello, PicaQ!
+```
