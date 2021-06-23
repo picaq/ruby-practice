@@ -1,14 +1,20 @@
 # ruby-practice and notes
+
 some practice files from Linkedin Learning’s [Ruby Essential Training Part 1: The Basics](https://www.linkedin.com/learning/ruby-essential-training-part-1-the-basics)
 
 This assumes knowledge coming from JavaScript
 
 notes below:
+
 # Objects
+
 ## Numbers
+
 - use floats for precision calculations
 - integer •/÷ integer make less precise (rounded) results
+
 ```ruby
+
 # change to float
 num.to_f
 
@@ -22,7 +28,9 @@ num.to_i
 ```
 
 ## Strings
+
 - mutable
+
 ```ruby
 # append
 string << "substr"
@@ -52,7 +60,9 @@ string.reverse
 # length
 string.length
 ```
+
 ### double-quoted string powers
+
 ```ruby
 # tab, newline
 "\t \n"
@@ -62,6 +72,7 @@ string.length
 ```
 
 ## Arrays
+
 ```ruby
 # append ( like arr.push )
 array << element
@@ -77,6 +88,7 @@ array[starting_i.. ending_i] # range, where starting_i < ending_i
 ```
 
 ### array methods
+
 ```ruby
 # ! at the end of the methods reassigns the array to the change
 array.reverse
@@ -118,6 +130,7 @@ array.index(value) # returns index or nil
 ```
 
 ## Hashes
+
 - aka dictionaries, associative arrays
 - unordered
 - find items by key, not position
@@ -143,6 +156,7 @@ hash.to_a # returns 2D array of [key, value]
 ```
 
 ## Symbols
+
 - immutable labels, not variables
 - start with :
 - lowercase, underscores
@@ -150,7 +164,7 @@ hash.to_a # returns 2D array of [key, value]
 - no quotes or spaces
 - can be used in hashes
 - refers to exact same item `.object_id` in memory, opposed to strings
-    - less frequent garbage collection
+  - less frequent garbage collection
 
 ```ruby
 hash =  {
@@ -170,8 +184,11 @@ hash = {
 # shorthand keys are ALWAYS all symbols
 hash.keys.first.class # returns Symbol
 ```
+
 ## Booleans
+
 - methods names that end in `?` returns booleans
+
 ```ruby
 [1, 2, 3].include?(2) # returns true
 2.between?(5,8) # returns false
@@ -179,16 +196,21 @@ hash.keys.first.class # returns Symbol
 hash.has_key?(:some_key) # true
 hash.has_value?('value') # false
 ```
+
 ### Comparison + Logic Operators
+
 ```ruby
 ==  <  >  <=  >=  !  !=  &&  ||
 
 true.class # returns TrueClass
 false.class # returns FalseClass
 ```
+
 ## Ranges
+
 - must wrap range in parens before calling methods if it is not in a variable
 - avoid using exclusive ranges
+
 ```ruby
 range.class = Range
 
@@ -215,11 +237,13 @@ array = [*range]
 ```
 
 ## Constants
+
 - not obj but reference them
 - all caps naming convention
-   - title case works but not advised
+  - title case works but not advised
 - not meant to change but changeable
-   - ruby will issue warning + change it
+  - ruby will issue warning + change it
+
 ```ruby
 THIS_IS_CONSTANT = 40
 this_variable = 55
@@ -227,7 +251,9 @@ This_is_also_const = 'but ill advised'
 ```
 
 ## Nil
+
 - aka null
+
 ```ruby
 nil.class # returns NilClass
 
@@ -243,9 +269,11 @@ nil.nil? # returns true
 ```
 
 # Control Structures
+
 ## Conditionals
 
 ### if, elsif, else
+
 ```ruby
 if boolean
    # ...
@@ -257,8 +285,10 @@ end
 ```
 
 ### unless
+
 - like a reverse if
 - can chain with else
+
 ```ruby
 unless boolean
    # ...
@@ -300,6 +330,7 @@ else # default (optional)
    # ...
 end
 ```
+
 ## Short-hand Operators
 
 ### ternary 
@@ -307,15 +338,19 @@ end
 ```ruby
 boolean ? true_result : else_result
 ```
+
 ### Or Operator 
+
 - great for setting default values
+
 ```ruby
 x = y || z
 
 # same as
 y ? x = y : x = z
 ```
-### Or-Equals Operator 
+
+### Or-Equals Operator
 
 ```ruby
 # if x has a value, use it, otherwise, set x = y
@@ -329,7 +364,9 @@ end
 ```
 
 ### Statement Modifieers
+
 - only for single lines for readability
+
 ```ruby
 x = y unless x
 puts "Hello" if greeting_enabled
@@ -360,14 +397,16 @@ i = 5
 loop do
    break if i <= 0
    puts "Countdown: #{i}"
-   i -+ 1
+   i -= 1
 end
 puts "Blast off!"
 ```
 
 ### while, until
+
 - do is optional here?
 - break is built into this loop
+  
 ```ruby
 # run while something is still true
 while boolean
@@ -381,7 +420,7 @@ end
 ```
 
 ```ruby
-# example
+# example: do/break is built into this loop
 i = 5
 while i > 0 # or until i <= 0 
    puts "Countdown: #{i}"
@@ -389,6 +428,7 @@ while i > 0 # or until i <= 0
 end
 puts "Blast off!"
 ```
+
 <!--
 ```ruby
 
