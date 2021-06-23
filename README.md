@@ -429,6 +429,100 @@ end
 puts "Blast off!"
 ```
 
+## Iterators
+
+- usually performs code on each item in a set ( array, hash, range ) of values to iterate through
+
+```ruby
+# example: times
+i = 5
+i.times do
+   puts "Countdown: #{i}"
+   i -= 1
+end
+puts "Blast off!"
+```
+
+### times, upto, downto, each
+
+```ruby
+5.times { puts "Hello" }
+1.upto(5) { puts "Hello" }
+5.downto(1) { puts "Hello" }
+(1..5).each { puts "Hello" }
+```
+
+### Block Variables
+
+- thing inside pipes == block variable
+- only used inside its block
+- next value become block variable as it iterates
+
+```ruby
+5.downto(1) do |i|
+   puts "Coutndown: #{i}"
+end
+puts "Blast off!"
+```
+
+### numbers
+
+```ruby
+num.times
+1.upto(2)
+5.downto(1)
+num.step
+```
+
+### range
+
+```ruby
+range.each
+(1..5).step
+```
+
+### string
+
+```ruby
+'str'.each_line
+'str'.each_char
+'str'.each_byte
+```
+
+### array
+
+```ruby
+array.each
+['arr', 'ay'].each_index
+[1, 2, 3].each_with_index
+```
+
+### hash
+
+```ruby
+hash.each
+hash.each_key
+hash.each_value
+hash.each_pair
+```
+
+### for...in
+
+```ruby
+# example
+fruits = ['banana', 'apple', 'pear']
+
+# most common usage
+fruits.each.do |fruit|
+   puts fruit.capitalize
+end
+
+# same as
+for fruit in fruits
+   puts fruit.capitalize
+end
+```
+
 <!--
 ```ruby
 
