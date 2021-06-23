@@ -26,7 +26,7 @@ puts "\nOkay, I have my number."
   if guess.to_i != number
     puts 'Sorry, that wasn’t it'
   else
-    abort("\nCongratulations! You guessed my number #{number}!")
+    abort("\nCongratulations, #{name}! You guessed my number #{number}!")
   end
   
 end
