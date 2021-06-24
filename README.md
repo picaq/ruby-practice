@@ -588,3 +588,106 @@ respone = gets.chomp
 puts "Hello, #{response}!"
 # Hello, PicaQ!
 ```
+
+# Enumerables and Code Blocks 
+
+## [Enumerables](http://ruby-doc.org/core-2.5.1/Enumerable.html) (included modules)
+
+- Countable items
+- Arrays
+- Ranges
+- Hashes
+- Strings ( kind of, used to be, and not anymore )
+  - can act like enumerables but aren’t
+  - can enumerate by character or by byte
+  
+### Methods
+
+- `count` countable
+- `each` allows iterating through set
+  - requires having a code block that you can execute
+- `each_with_index`
+- `first`, `last`
+- `include?`
+- `max` , `min` if comparable
+
+## Code Blocks
+
+- delimited by ` do`  and `end` 
+
+
+```ruby
+# execute block 5 times
+5.times do
+  puts "Hello"
+end
+
+# same as
+5.times { puts "Hello" }
+``` 
+
+### Curly-brace format
+
+- single-line blocks
+- blocks return data without changing anything
+- anything simple
+  
+### Do-end format
+
+- Multiline blocks
+- Blocks that perform actions, make changes
+- more complex executions
+
+### Block Variable examples
+
+```ruby
+5.downto(1) do |i|
+   puts "Countdown: #{i}"
+end
+puts "Blast off!"
+
+# same as
+5.downto(1) { |i| puts "Countdown: #{i}" }
+puts "Blast off!"
+```
+
+- can use commas to list additional block variables
+- only need one block variable for an array
+- hash allows assigning `key` and `value` into separate block variables
+
+```ruby
+scores = {low:2, high: 8, avg: 6}
+
+scores.each do |k, v|
+   puts "#{k.capitalize}: #{v}"
+end
+```
+
+### Variable Scope Indicators
+
+|              |              |
+|-------------:|--------------|
+|  `$variable` | **Global**   |
+| `@@variable` | **Class**    |
+|  `@variable` | **Instance** |
+|   `variable` | **Local**    |
+|   `variable` | **Block**    |
+
+#### Block Variable Scope
+
+```ruby
+factor = 2
+[1,2,3,4,5].each do |n|
+   puts n * factor
+end
+
+puts n # undefined local variable or method
+
+n = 1
+factor = 2
+[1,2,3,4,5].each do |n|
+   puts n * factor
+end
+
+puts n # 1
+``` 
