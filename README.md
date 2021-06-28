@@ -158,7 +158,7 @@ hash.to_a # returns 2D array of [key, value]
 ## Symbols
 
 - immutable labels, not variables
-- start with :
+- start with `:`
 - lowercase, underscores
 - cannot start key with numbers
 - no quotes or spaces
@@ -690,4 +690,56 @@ factor = 2
 end
 
 puts n # 1
+```
+
+### Common Methods
+
+- `find`
+- `map`
+- `inject`
+- `sort`
+- `merge`
+
+### Optional Code Blocks
+
+- methods that accept optional code blocks
+  - usually modifies the default behavior, like sort in a certain way
+- can write custom methods that accept code blocks
+  
+## Find Methods
+
+- `.find == .detect`
+  - only returns the first value it finds
+- `.find_all == .select`
+  - returns an array of all found values
+- `.any? , .none?`
+  - returns bools
+- `.all? , .one?`
+  - `all` is true only if **all** values match the boolean condition
+  - `one` is true IFF **one** value matches condition
+- `.delete_if`
+  - modifies array in-place
+
+```ruby
+(1..10).find { |n| n % 3 == 0 } # 3
+
+fruits = ['apple', 'banana', 'pear']
+fruits.find { |fruit| fruit.length > 5 } # 'banana'
+
+basket = {'apple' => 0, 'banana' => 1, 'pear' => 3}
+basket.find_all { |k,v| v < 3 } # [["apple", 0], ["banana", 1]]
+
+(1..10).any? { |n| n <= 5 } # true
+
+(1..10).none? { |n| n <= 5 } # false
+
+(1..10).all? { |n| n <= 5 } # false
+
+(1..10).one? { |n| n == 5 } # true
+
+nums = [*1..10]
+nums.delete_if { |n| n <= 5 } # [6, 7, 8, 9, 10]
+nums.delete_if { |n| n % 2 == 1 } # [6, 8, 10]
 ``` 
+
+
