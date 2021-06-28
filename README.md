@@ -80,7 +80,7 @@ array << element
 # indexing
 array[-1] # last element
 array[-2] # second til last 
-   etc...
+  etc...
 
 # portion of array
 array[starting_i, num_of_elem]
@@ -137,8 +137,8 @@ array.index(value) # returns index or nil
 
 ```ruby
 hash = {
-   'key' => 'value',
-   'label' => 'value'
+  'key' => 'value',
+  'label' => 'value'
 }
 
 # accessing obj
@@ -168,8 +168,8 @@ hash.to_a # returns 2D array of [key, value]
 
 ```ruby
 hash =  {
-   :some_key => 'Some value',
-   :a_symbol => 'a value'
+  :some_key => 'Some value',
+  :a_symbol => 'a value'
 }
 
 # retrieve a value
@@ -177,8 +177,8 @@ hash[:a_symbol] # returns 'a value'
 
 # shorthand looks like json
 hash = {
-   some_key: 'Some value',
-   a_symbol: 'a value'
+  some_key: 'Some value',
+  a_symbol: 'a value'
 }
 
 # shorthand keys are ALWAYS all symbols
@@ -276,11 +276,11 @@ nil.nil? # returns true
 
 ```ruby
 if boolean
-   # ...
+  # ...
 elsif boolean
-   # ...
+  # ...
 else
-   # ...
+  # ...
 end
 ```
 
@@ -291,12 +291,12 @@ end
 
 ```ruby
 unless boolean
-   # ...
+  # ...
 end
 
 # equivalent to
 if !boolean
-   # ...
+  # ...
 end
 
 # example
@@ -312,22 +312,22 @@ end
 # very flexible
 case
 when boolean
-   # ...
+  # ...
 when boolean
-   # ...
+  # ...
 else # default (optional)
-   # ...
+  # ...
 end
 
 # case with comparisons
 # simplified for comparing values
 case test_value
 when value
-   # ...
+  # ...
 when value
-   # ...
+  # ...
 else # default (optional)
-   # ...
+  # ...
 end
 ```
 
@@ -359,7 +359,7 @@ x ||= y
 
 # same as
 unless x
-   x = y
+  x = y
 end
 ```
 
@@ -377,7 +377,7 @@ puts "Hello" if greeting_enabled
 ```ruby
 # infinite by default, needs control methods
 loop do
-   # ...
+  # ...
 end
 ```
 
@@ -395,9 +395,9 @@ retry # restart whole loop
 # example
 i = 5
 loop do
-   break if i <= 0
-   puts "Countdown: #{i}"
-   i -= 1
+  break if i <= 0
+  puts "Countdown: #{i}"
+  i -= 1
 end
 puts "Blast off!"
 ```
@@ -410,12 +410,12 @@ puts "Blast off!"
 ```ruby
 # run while something is still true
 while boolean
-   # ...
+  # ...
 end
 
 # run until something becomes true
 until boolean
-   # ...
+  # ...
 end
 ```
 
@@ -423,8 +423,8 @@ end
 # example: do/break is built into this loop
 i = 5
 while i > 0 # or until i <= 0 
-   puts "Countdown: #{i}"
-   i -= 1
+  puts "Countdown: #{i}"
+  i -= 1
 end
 puts "Blast off!"
 ```
@@ -437,8 +437,8 @@ puts "Blast off!"
 # example: times
 i = 5
 i.times do
-   puts "Countdown: #{i}"
-   i -= 1
+  puts "Countdown: #{i}"
+  i -= 1
 end
 puts "Blast off!"
 ```
@@ -460,7 +460,7 @@ puts "Blast off!"
 
 ```ruby
 5.downto(1) do |i|
-   puts "Countdown: #{i}"
+  puts "Countdown: #{i}"
 end
 puts "Blast off!"
 ```
@@ -514,12 +514,12 @@ fruits = ['banana', 'apple', 'pear']
 
 # most common usage
 fruits.each do |fruit|
-   puts fruit.capitalize
+  puts fruit.capitalize
 end
 
 # same as
 for fruit in fruits
-   puts fruit.capitalize
+  puts fruit.capitalize
 end
 ```
 
@@ -533,7 +533,7 @@ end
 ## Best Practices
 
 - name files with `.rb`
-- shebang line at top: 
+- shebang line at top:
   - `#!/usr/bin/env ruby`
   - allows ruby scripts to be run anywhere
   - tells unix to go to environment and ask it to tell which vers of ruby to use
@@ -613,8 +613,7 @@ puts "Hello, #{response}!"
 
 ## Code Blocks
 
-- delimited by ` do`  and `end` 
-
+- delimited by `do`  and `end`
 
 ```ruby
 # execute block 5 times
@@ -624,7 +623,7 @@ end
 
 # same as
 5.times { puts "Hello" }
-``` 
+```
 
 ### Curly-brace format
 
@@ -642,7 +641,7 @@ end
 
 ```ruby
 5.downto(1) do |i|
-   puts "Countdown: #{i}"
+  puts "Countdown: #{i}"
 end
 puts "Blast off!"
 
@@ -659,7 +658,7 @@ puts "Blast off!"
 scores = {low:2, high: 8, avg: 6}
 
 scores.each do |k, v|
-   puts "#{k.capitalize}: #{v}"
+  puts "#{k.capitalize}: #{v}"
 end
 ```
 
@@ -670,15 +669,15 @@ end
 |  `$variable` | **Global**   |
 | `@@variable` | **Class**    |
 |  `@variable` | **Instance** |
-|   `variable` | **Local**    |
-|   `variable` | **Block**    |
+|  `variable`  | **Local**    |
+|  `variable`  | **Block**    |
 
 #### Block Variable Scope
 
 ```ruby
 factor = 2
 [1,2,3,4,5].each do |n|
-   puts n * factor
+  puts n * factor
 end
 
 puts n # undefined local variable or method
@@ -686,7 +685,7 @@ puts n # undefined local variable or method
 n = 1
 factor = 2
 [1,2,3,4,5].each do |n|
-   puts n * factor
+  puts n * factor
 end
 
 puts n # 1
@@ -740,6 +739,72 @@ basket.find_all { |k,v| v < 3 } # [["apple", 0], ["banana", 1]]
 nums = [*1..10]
 nums.delete_if { |n| n <= 5 } # [6, 7, 8, 9, 10]
 nums.delete_if { |n| n % 2 == 1 } # [6, 8, 10]
-``` 
+```
 
+## Map Methods
+
+- `.map == .collect`
+  - iterate through enumerable
+  - execute code block on each item
+  - add result of block to a **new array**
+  - `.map! or .collect!` for powerful/ destructive version by **replacing** contents of the existing array in-place
+- num items **in** == num items **out**
+- map from first element to second element
+- always returns an **array** of results
+
+```ruby
+# arrays
+
+x = [*1..5]
+y = x.map {|n| n + 1 }
+
+x # [1, 2, 3, 4, 5]
+y # [2, 3, 4, 5, 6]
+
+z = x.collect {|n| n * 50 }
+z # [50, 100, 150, 200, 250]
+```
+
+```ruby
+# hash will return an array
+
+scores = { low: 2, high: 8, avg: 6 }
+
+adj_scores = scores.map do |k, v| 
+  "#{k.capitalize}: #{v * 100}"
+end
+# ["Low: 200", "High: 800", " Avg: 600" ]
+```
+
+```ruby
+fruits = ['apple', 'banana', 'pear']
+
+# returns the result of the block of code
+y = fruits.map do |fruit|
+  if fruit == 'pear'
+    fruit.capitalize
+  end
+  # does nothing here for apple thus evals to nil
+end
+# [nil, nil, "Pear"]
+
+y = fruits.map do |fruit|
+  if fruit == 'pear'
+    fruit.capitalize
+  else
+    fruit # do nothing to fruit
+  end
+end
+# ["apple", "[banana]", "Pear"]
+
+cap_fruits = fruits.map do |fruit|
+  puts fruit.capitalize
+  # but return value is nil
+end
+# Apple
+# Banana
+# Pear
+
+cap_fruits # [nil, nil, nil]
+```
 
