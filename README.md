@@ -808,3 +808,69 @@ end
 cap_fruits # [nil, nil, nil]
 ```
 
+## Inject Methods
+
+- `inject == reduce`
+- “Accumulator” Ruby convention = **memo**
+- remember the result aka memo
+- block variable used to accumulated
+- `inject(memo)`
+- if `memo` is not provided a value, it grabs the first element in the set and uses it as its value
+- *return values matter* because it’s the result of the block that gets used
+
+```ruby
+(1..5).map { |n| n }
+
+(1..5).inject { |memo, n| memo + n } # result of each operation stored in memo for the next operation
+# 15
+
+[3, 5, 7].inject { |memo, n| memo * n } # (3 * 5) * 7
+# 105
+
+[2, 4, 6].inject { |memo, n| memo ** n } # (2 ** 4) ** 6
+# 16777216
+```
+
+### Return Values matter
+
+```ruby
+(1..5).inject do |memo, n|
+  memo + n
+  x = 0 # the only value that gets remembered
+end
+# 0
+
+(1..5).inject do |memo, n|
+  if n % 2 == 0 # when it’s not even it doesn’t add
+    memo + n
+  end
+  # the memo is nil when n % 2 != 0
+end
+# undefined method "+" for nil
+```
+
+### Inject without Math
+
+```ruby
+fruits = ['apple', 'banana', 'pear']
+
+# starting value is 0
+size = fruits.inject(0) do |memo, fruit|
+  memo + fruit.length
+end
+# 15
+
+longest = fruits.inject do |memo, fruit|
+  if fruit.length > memo.length
+    fruit
+  else
+    memo
+  end
+end
+# "banana"
+
+mash = fruits.inject('') do |memo, fruit|
+  memo << fruit[0]
+end
+# "abp"
+```
