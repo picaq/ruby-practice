@@ -983,3 +983,58 @@ hash.sort { |p1, p2| p1[0] <=> p2[0] }
 # [[:a, 4], [:b, 3], [:c, 5]]
 ```
 
+## Merge methods
+
+- hashes only
+- Merges two hashes together
+- blocks if you want to have rules
+
+### Merge Without a Block
+
+```ruby
+# keys not the same but two overlap
+# values for :a are different
+h1 = { :a => 2, :b => 4, :c => 6 }
+h2 = { :a => 3, :b => 4, :d => 8 }
+
+h1.merge(h2)
+# { :a => 3, :b => 4, :c => 6, :d => 8 }
+# for :a the second, newer key value wins in key conflict
+
+# flipped: the new value merged in wins
+h2.merge(h1)
+# { :a => 2, :b => 4, :c => 6, :d => 8 }
+```
+
+- key conflict = when keys both exist in the hashes but have different or the same values
+
+### key conflict blocks
+
+```ruby
+# this block only gets called when there’s a key conflict
+# key = key in conflict
+# old is in h1
+# new is being merged in from h2
+
+# when there’s a key conflict the new one should win
+h1.merge(h2) { |key, old, new| new }
+
+# when there’s a key conflict the old value wins
+# { :a => 3, :b => 4, :c => 6, :d => 8 }
+h1.merge(h2) { |key, old, new| old }
+# { :a => 2, :b => 4, :c => 6, :d => 8 }
+
+# keep the old one if it is smaller than the new one otherwise keep the new one
+h1.merge(h2) {|k,o,n| o < n ? o : n }
+# { :a => 2, :b => 4, :c => 6, :d => 8 }
+
+# multiplies the old and new together when there’s a conflict
+h1.merge(h2) {|k,o,n| o * n }
+#  { :a => 6, :b => 16, :c => 6, :d => 8 }
+```
+
+### destructive
+
+- `.merge!`
+- replaces hash contents by merging into the original hash
+  
