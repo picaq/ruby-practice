@@ -874,3 +874,112 @@ mash = fruits.inject('') do |memo, fruit|
 end
 # "abp"
 ```
+
+## Sort Methods
+
+### Comparison Operator
+
+- `<=>`
+- Comparison operator
+- “Spaceship operator”
+- usually used with sorts
+  
+```ruby
+value1 <=> value2
+
+-1  # if v1 < v2
+ 0  # if v1 == v2
+ 1  # if v1 > v2
+```
+
+```ruby
+1 <=> 2  # -1
+2 <=> 1  # 1
+2 <=> 2  # 0
+```
+
+| `value1` |`<=>` |`value2` |
+|---:|:--:|--------|
+| -1 |  < | move ← |
+|  0 | == | stay   |
+|  1 |  > | move → |
+
+### `.sort`
+
+```ruby
+array = [5,8,2,6,1,3]
+
+# smaller items move to the left
+x = array.sort { |v1, v2| v1 <=> v2 }
+# [1, 2, 3, 5, 6, 8]
+
+# greater items move to the right
+x = array.sort { |v1, v2| v2 <=> v1 }
+# [8, 6, 5, 3, 2, 1]
+
+# reverse the sort by reversing the items in the block
+```
+
+### `.sort`, `.sort_by`
+
+```ruby
+fruits = ['banana', 'apple', 'pear']
+
+# sort has default sort order
+x = fruits.sort
+# ["apple", "banana", "pear"]
+
+# provide block for custom sort order
+# sorted by string length here
+x = fruits.sort do |fruit1, fruit2|
+  fruit1.length <=> fruit2.length
+end
+# ["pear", "apple", "banana"]
+
+# same as, but sort_by is a bit slower
+x = fruits.sort_by { |fruit| fruit.length }
+```
+
+### Without `<=>`
+
+```ruby
+# custom sort order
+# <=> is just returning one of 3 values
+x = fruits.sort do |fruit1, fruit2|
+  case fruit1
+  when 'apple'; 1
+  when 'banana'; -1
+  when 'pear'; 0
+end
+# ["banana","pear","apple"]
+```
+
+- semicolons are rare and separate lines, but could just drop numbers into new lines
+
+### Powerful/destructive
+
+- `.sort!`, `.sort_by!`
+- **replaces** contents
+- sorts in-place
+  
+```ruby
+array = [5,8,2,6,1,3]
+
+array.sort! { |v1,v2| v1 <=> v2 }
+
+array # [1, 2, 3, 5, 6, 8]
+```
+
+### Sorting Hashes
+
+- how do you sort an unordered set?
+- it returns an **array**
+  - it converts the hash into an array and then it sorts
+
+```ruby
+hash = { a: 4, c: 5, b: 3 }
+
+hash.sort { |p1, p2| p1[0] <=> p2[0] }
+# [[:a, 4], [:b, 3], [:c, 5]]
+```
+
