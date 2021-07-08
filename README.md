@@ -1037,4 +1037,82 @@ h1.merge(h2) {|k,o,n| o * n }
 
 - `.merge!`
 - replaces hash contents by merging into the original hash
+
+# Custom Methods
+
+## methods predefined on ruby objects
+
+- `"hello"`**`.reverse.capitalize`**
+- `1`**`.upto`**`(5) { ... }`
+- `[1,5,4,3,2]`**`.sort`**` { ... }`
   
+## Methods info
+
+- instructions to perform a specific task, packaged as a unit
+  - called functions in other languages
+  - but since ruby is OOP, call them methods
+- define once and called many times
+- DRY
+- must be defined before it is called
+- can be redefined
+
+### Method naming
+
+- lowercase with underscores
+- first character can be letter or `_`
+- contain letters, digits, underscores
+- last char can be `? ! =`
+  - **`?`** convention to return bool
+  - **`!`** convention to indicate more powerful/destructive version
+- avoid using the same name for variables and methods
+- defined with `def` keyword
+- can pass in different data in parens each time you use it
+  
+```ruby
+# everything from def to end is our method definition
+def some_name
+  # ...
+end
+
+# must call the method to execute whatevs is inside the definition
+def welcome
+  puts "Hello World!"
+end
+
+welcome
+# Hello world!
+```
+
+## Variable Scope
+
+|              |              |
+|-------------:|--------------|
+|  `$variable` | **Global**   |
+| `@@variable` | **Class**    |
+|  `@variable` | **Instance** |
+|  `variable`  | **Local**    |
+|  `variable`  | **Block**    |
+
+- local variables inside methods only have scope inside methods
+- local variables inside methods only have scope inside methods
+- global, class, and instance have scope both inside/outside methods
+
+```ruby
+value = 10
+
+def output_value
+  puts value
+end
+
+output_value
+# undefined local variable or method for 'value'
+
+def set_value
+  value = 20
+end
+
+set_value
+
+value
+# 10
+```
