@@ -1094,7 +1094,6 @@ welcome
 |  `variable`  | **Block**    |
 
 - local variables inside methods only have scope inside methods
-- local variables inside methods only have scope inside methods
 - global, class, and instance have scope both inside/outside methods
 
 ```ruby
@@ -1115,4 +1114,70 @@ set_value
 
 value
 # 10
+```
+
+## Arguments
+
+- method can recieve values at runtime (when called)
+- number of args must match defined number in the same order
+- local variables inside the method
+
+```ruby
+def volume(x, y, z)
+  x * y * z
+end
+
+volume(2,3)
+# ArgumentError:
+# wrong number of Arguments
+# (given 2, expected 3)
+```
+
+### Argument Parentheses
+- optional
+  - methods with arguments use them
+  - methods without args don’t use them
+  - both for defining/calling
+- convention: always add parens if there are args (but it will still work)
+
+```ruby
+# works but highly discouraged
+def volume x, y, z
+  x * y * z
+end
+
+volume 2,3,4
+# 24
+```
+
+## Argument Default Values (Optional arguments)
+- any ruby object or expression can be used
+- `[]`  is common
+- required args first
+- optional args at end
+- least likely used args at the very end
+```ruby
+def welcome(greet, name, punct='!')
+  greet + ' ' + name + punct
+end
+
+puts welcome('Hello', 'friend')
+# Hello friend!
+```
+
+### options hash
+- maximum flexibility
+- don’t have to provide any options
+- if there are any, then code will look for it in the hash
+
+```ruby
+def welcome(greeting, options={})
+  name = options[:name] || 'friend'
+  punct = options[:punct] || '!'
+  greeting + ' ' + name + punct 
+end
+
+# skips over middle option
+puts welcome('Hello', {:punct => '!!!'})
+# Hello friend!!!
 ```
