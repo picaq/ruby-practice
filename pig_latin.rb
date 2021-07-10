@@ -9,8 +9,15 @@
   # glove => oveglay
   # where => erewhay
 
+VOWELS = ['a', 'e', 'i', 'o', 'u']
+
 def pig_latin(word)
-  # ...
+  # convert word to array
+  # find first vowel position
+  #   Array#find_index
+  # if pos > 0
+  # remove characters up to position
+  # return main + front + 'ay'
 end
 
 puts pig_latin("Ruby")
