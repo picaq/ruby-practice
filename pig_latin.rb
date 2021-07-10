@@ -10,10 +10,11 @@
   # where => erewhay
 
 VOWELS = ['a', 'e', 'i', 'o', 'u']
+LETTERS = [*'a'..'z'] + [*'A'..'Z']
 
 def pig_latin(word)
   caps = false
-  if word[0] == word[0].upcase
+  if LETTERS.include?(word[0]) && word[0] == word[0].upcase
     caps = true
   end
   # convert word to array
@@ -33,12 +34,38 @@ def pig_latin(word)
   # remove characters up to position
   # return main + front + 'ay'
 end
-puts pig_latin("Ruby") # Ubyray
-puts pig_latin("pig")
-puts pig_latin("latin")
-puts pig_latin("elevator")
-puts pig_latin("glove")
-puts pig_latin("where")
-puts pig_latin("racecar")
-puts pig_latin("Space")
+# puts pig_latin("Ruby") # Ubyray
+# puts pig_latin("pig")
+# puts pig_latin("latin")
+# puts pig_latin("elevator")
+# puts pig_latin("glove")
+# puts pig_latin("where")
+# puts pig_latin("racecar")
+# puts pig_latin("Space")
 
+# part 2: preserve capitalization and punctuation for a sentence
+
+def translate(sent)
+  word_array = sent.split(/\s/)
+  word_array.map! do |word|
+    if word.length == 1 && !LETTERS.include?(word)
+      word
+    else
+      front = word.match(/^[^a-zA-Z\s\d]+/).to_s
+      last = word.match(/[^a-zA-Z\s\d]+$/).to_s
+      spliced_word = word[front.length..-last.length-1]
+      front + pig_latin(spliced_word).to_s + last
+    end
+  end
+  word_array.join(" ")
+end
+
+puts "------------------------"
+puts "| pig latin translator |"
+puts "------------------------"
+puts "type a sentence: " 
+sentence = gets.chomp
+puts
+puts "pig latin: "
+puts translate(sentence)
+puts
