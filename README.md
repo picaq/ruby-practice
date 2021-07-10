@@ -1181,3 +1181,68 @@ end
 puts welcome('Hello', {:punct => '!!!'})
 # Hello friend!!!
 ```
+
+## Return Values
+
+- methods return last operation’s value by default
+  - a return value of a puts line is nil
+- `return`: returns a value and exits the method
+  - useful in conditionals & loops
+
+### be explicit to prevent errors
+```ruby
+def subtract(n1, n2)
+  result = n1 - n2
+  result = 0 if result < 0
+  result  # explicitly state last value
+end
+
+subtract(8, 3)
+# 5
+```
+
+### `puts` or `print` in methods
+
+- best not to use `puts` or `print` in methods
+  - methods that only return values are more flexible
+  - except for methods designed strictly for output
+  - i.e. have methods that do calculations and another that does output
+
+## Return Multiple Values
+- methods can only return one value (object)
+- use an array or hash to return multiple Values
+  - then look inside to get the desired values
+
+```ruby
+def add_and_subtract(n1, n2)
+  add = n1 + n2
+  sub = n1 - n2
+  [add, subtract]  # returns array
+end
+
+# assign return value to result
+result = add_and_subtract(8, 3)
+
+# look inside to get values
+a = result[0]
+s = result[1]
+
+# same thing with a hash
+def add_and_subtract(n1, n2)
+  add = n1 + n2
+  sub = n1 - n2
+  {:add => add, :sub => sub}
+end
+
+# assign return value to result
+result = add_and_subtract(8, 3)
+
+# use keys to assign corresponding values
+a = result[:add]
+s = result[:sub]
+
+# array return values only:
+# multiple assignment using csv/ comma delimited list
+# ruby automatically takes the elements and assign to those variables
+a, s = add_and_subtract(8, 3)
+```
