@@ -48,7 +48,7 @@ end
 def translate(sent)
   word_array = sent.split(/\s/)
   word_array.map! do |word|
-    if word.length == 1 && !LETTERS.include?(word)
+    if word.length == 1 && !LETTERS.include?(word) # takes care of weird & => &0&
       word
     else
       front = word.match(/^[^a-zA-Z\s\d]+/).to_s
