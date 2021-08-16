@@ -92,3 +92,48 @@ puts pig.make_noise
 - an instance of a class always has access to its instance variables
 - ↑ can pull up a value of an instance variable from anywhere inside the class
 
+
+## Reader/writer methods
+- aka getter/setter methods
+- allow reading/writing to an attribute
+
+### Instance Variables
+- instantiation always has access to its instance variables
+- instance variable inaccessible outside an instance
+- methods accessible from outside instance
+- use **methods to access instance variables**
+
+```ruby
+class Animal
+  
+  def get_noise  # getting back the value of noise
+    @noise
+  end
+  
+  def set_noise(value)
+    @noise = value
+  end
+
+end
+
+# ruby convention:
+
+class Animal
+
+  def noise  # getting back the value of noise
+    @noise
+  end
+
+  def noise=(value)  # syntactic sugar, just assign a value to noise and have it work
+    @noise = value
+  end
+
+end
+
+# calling noise the method returns the instance variable @noise
+
+pig = Animal.new
+pig.noise = "Oink!"
+```
+
+- feels like asking for the value of the variable, but we are actually calling a method
