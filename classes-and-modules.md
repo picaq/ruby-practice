@@ -28,5 +28,29 @@ class ShoppingCart
   end
   
 end
+```
 
+## Instances
+
+```ruby
+string = "pasta"  # "pasta"
+string = String.new  # ""
+array = Array.new  # []
+hash = Hash.new  # {}
+```
+
+1. first create method in class
+2. create new instance
+2. then call method
+
+```ruby
+class Person
+  
+  def say_hello
+    'Hello!'
+  end
+end
+
+person = Person.new  # new instance
+puts person.say_hello  # call method in new instance
 ```
