@@ -137,3 +137,62 @@ pig.noise = "Oink!"
 ```
 
 - feels like asking for the value of the variable, but we are actually calling a method
+
+
+## Attribute Methods
+
+### `attr_*` methods
+
+- `attr_reader`
+- `attr_writer`
+- `attr_accessor`
+
+```ruby
+attr_reader :name
+
+# same as adding the definition to the class
+def name
+  @name
+end
+
+
+attr_writer :name
+
+# same as setting a value
+def name=(value)
+  @name = value
+end
+
+
+# reader + writer both in one line
+attr_accessor :name
+
+# same as both combined above
+def name
+  @name
+end
+
+def name=(value)
+  @name = value
+end
+```
+
+```ruby
+class Animal
+  attr_accessor :noise
+end
+
+pig = Animal.new
+pig.noise = 'Oink!' # write to the instance variable
+puts pig.noise  # read back from instance variable
+# Oink!
+```
+
+### Instances calling their own methods
+
+Helps ruby understand to call the method
+
+- use `self` to reference the current instance from the code inside the instance
+- add `self` when calling writer methods `self.first_name=`
+- omit `self` when calling other methods `first_name`
+- safest to always include `self`
