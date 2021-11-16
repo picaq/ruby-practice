@@ -196,3 +196,53 @@ Helps ruby understand to call the method
 - add `self` when calling writer methods `self.first_name=`
 - omit `self` when calling other methods `first_name`
 - safest to always include `self`
+
+
+## Method Access Control
+- methods = primary interfaces to class
+  - used to access instance variables
+- only expose when necessary so we have control over them
+- Access control restricts access to methods from outside an instance
+  - decides which methods are callable and which aren’t
+  
+### 3 levels of control:
+- `public` anyone can access (default)
+- `protected` can only be called by instances of the class and its subclasses
+- `private` can only be called by instances of a class (only from within the code definition from the class itself, not from dot method)
+  - cannot be called by subclasses
+
+```ruby
+class Newsletter
+  # public methods by default
+  def add_subscriptions # can still access private methods below
+    subscribe_to_product_updates
+    subscribe_to_press_releases
+  end
+  
+private
+  # use keyword to define private or protected methods
+  def subscribe_to_product_updates
+  end
+  
+  def subscribe_to_press_releases
+  end
+  
+end
+```
+
+```ruby
+class SomeClass
+  
+  def method1
+  end
+  
+protected
+  def method2
+  end
+  
+private
+  def method3
+  end
+  
+end
+```

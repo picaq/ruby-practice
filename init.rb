@@ -6,6 +6,16 @@ require_relative 'classes/animal'
 person = Person.new  # create new instance
 puts person.say_hello  # call method
 
+person.first_name = "Jane"
+person.last_name = "Smith"
+
+puts person.first_name
+puts person.last_name
+puts person.initial_and_last_name
+puts person.get_initial # will not work bc it’s private
+
+puts "_"*8
+
 # pig = Animal.new
 # pig.set_noise('oop')
 # puts pig.make_noise
