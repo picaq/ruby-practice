@@ -12,7 +12,7 @@ person.last_name = "Smith"
 puts person.first_name
 puts person.last_name
 puts person.initial_and_last_name
-puts person.get_initial # will not work bc it’s private
+# puts person.get_initial # will not work bc it’s private
 
 puts "_"*8
 
@@ -23,6 +23,8 @@ puts "_"*8
 # puts pig.make_noise
 
 pig = Animal.new
-pig.noise = 'snort!' # set the value here
+# pig.noise = 'snort!' # set the value here
 puts pig.noise  # read it back
 
+pig_2 = Animal.new(noise: 'Squeee!')
+puts pig_2.noise

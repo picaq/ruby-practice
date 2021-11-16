@@ -246,3 +246,44 @@ private
   
 end
 ```
+
+## Initialize Method
+
+- called automatically once a new instance of a class is created
+  - `ShoppingCart.new`
+- default or specific state
+  - specific state accepts arguments to the method that gets passed on to initialize method
+
+```ruby
+class Animal
+  
+  attr_accessor :noise
+  
+  def initialize # this is the code to run whenever a new instance is created
+    @noise = 'Oink!'
+    puts "New animal instantiated"
+  end
+
+end
+
+pig = Animal.new
+# New animal instantiated
+puts pig.noise # default value is Oink!
+# Oink!
+```
+
+```ruby
+class Animal
+  
+  attr_accessor :noise
+
+  def initialize(options={})
+    @noise = options[:noise] || 'Grrr!'
+  end
+
+end
+
+pig = Animal.new({noise: 'Oink!'}) # curly brackets optional
+puts pig.noise
+# Oink!
+```
