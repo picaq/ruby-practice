@@ -35,3 +35,16 @@ class DiceSet
   end
 
 end
+
+ds = DiceSet.new
+puts '--------------------'
+puts '| Ruby Dice Roller |'
+puts '--------------------'
+puts 'there is a set of two dice'
+puts 'press r to roll, and q to quit'
+input = gets.chomp
+while input && input != 'q'
+  print "#{ds.roll}  " if input == 'r'
+  input = gets.chomp # grabs new input and prevents infinite loop
+end
+puts 'end game'
